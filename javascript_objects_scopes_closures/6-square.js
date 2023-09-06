@@ -8,12 +8,12 @@ class Square extends Square1 {
 
   charPrint (c) {
     if (c === undefined) {
-      for (let i = 1; i <= this.size; i++) {
-        console.log('X'.repeat(this.size));
+      for (let i = 1; i <= this.height; i++) {
+        console.log('X'.repeat(this.width));
       }
     } else {
-      for (let i = 1; i <= this.size; i++) {
-        console.log(c.repeat(this.size));
+      for (let i = 1; i <= this.height; i++) {
+        console.log(c.repeat(this.width));
       }
     }
   }
