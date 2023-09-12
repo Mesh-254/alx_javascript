@@ -18,5 +18,7 @@ request(url, (error, response, body) => {
     const numberOfFilms = filmsWithWedgeAntilles.length;
 
     console.log(numberOfFilms);
+  } else if (error) {
+    console.error(error);
   }
 });
