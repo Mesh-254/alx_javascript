@@ -12,19 +12,9 @@ request.get(url, function (error, response, body) {
   }
   const filmData = JSON.parse(body);
 
-  filmData.results.forEach(film => {
-    film.characters.includes(`https://swapi-api.alx-tools.com/api/people/${characterId}/`)
+  filmData.results.forEach((film) => {
+    if (film.characters.includes(`https://swapi-api.alx-tools.com/api/people/${characterId}/`))
     count ++;
-  }
-    
-  );
-
+  });
   console.log(count)
-
-  // for (let i = 0; filmData.results[i] !== undefined; i++) {
-  //   if (filmData.results[i].characters.includes(`https://swapi-api.alx-tools.com/api/people/${characterId}/`)) {
-  //     count++;
-  //   }
-  // }
-  // console.log(count);
 });
