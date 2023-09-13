@@ -8,7 +8,9 @@ request.get(url, function (error, response, body) {
     console.error(error);
   }
   const todos = JSON.parse(body);
+  //object to store the number of completed tasks by user ID
   const completed = {};
+  // Loop through the todos and count completed tasks by user
   todos.forEach(todo => {
     if (todo.completed === true) {
       if (!completed[todo.userId]) {
