@@ -21,7 +21,7 @@ const studentHogwarts = function () {
     penalizeStudent: function () {
       changeScoreBy(-1);
     },
-    // public method getScore that returns name and score
+    // public method getScore that outputs name and score
     getScore: () => {
       console.log(name + ': ' + privateScore);
     }
