@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>cookies-Basics</title>
+    <style>
+      body {
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        padding-left: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1><b>Login to the website</b></h1>
+    <div class="input-container">
+      <input
+        type="text"
+        id="firstname"
+        name="firstname"
+        placeholder="Firstname"
+      />
+      <input type="text" id="email" name="email" placeholder="Email" />
+      <button onclick="setCookies()">Log me in</button>
+    </div>
+    <br /><br />
+    <h1><b>Cookies</b></h1>
+    <button onclick="showCookies()">Show the cookies</button>
+
+    <script>
+      // function to set cookies
+      function setCookies() {
+        // fetch email and firstname from login form inputs
+        let firstName = document.getElementById("firstname").value;
+        let email = document.getElementById("email").value;
+
+        // Create a cookie, valid across the entire site
+        document.cookie = `firstname=${firstName}; expires=Thu, 01 Jan 2030 00:00:00 UTC;`;
+        document.cookie = `email=${email}; expires=Thu, 01 Jan 2030 00:00:00 UTC;`;
+      }
+      // function to show cookies
+      function showCookies() {
+        if (document.cookie) {
+          let p = document.createElement("p");
+          p.innerText = `Cookies: ${document.cookie}`;
+          document.body.appendChild(p);
+        } else {
+          alert("There are no cookies");
+        }
+      }
+    </script>
+  </body>
+</html>
+
+
+
