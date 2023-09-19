@@ -44,8 +44,8 @@
         }
 
         // Create a cookie, valid across the entire site
-        document.cookie = `firstname=${firstName}; expires=${expiry_days};`;
-        document.cookie = `email=${email}; expires=${expiry_days};`;
+        document.cookie = `firstname=${firstName}; expires=${expiry_days};path="/"`;
+        document.cookie = `email=${email}; expires=${expiry_days}; path="/"`;
       }
       // function to show cookies
       function showCookies() {
