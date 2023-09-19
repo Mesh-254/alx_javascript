@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>cookies-Basics</title>
+    <style>
+      body {
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        padding-left: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1><b>Login to the website</b></h1>
+    <div class="input-container">
+      <input
+        type="text"
+        id="firstname"
+        name="firstname"
+        placeholder="Firstname"
+      />
+      <input type="text" id="email" name="email" placeholder="Email" />
+      <button onclick="setCookies()">Log me in</button>
+    </div>
+    <br /><br />
+    <h1><b>Cookies</b></h1>
+    <button onclick="showCookies()">Show the cookies</button>
+
+    <script>
+      // function to set cookies
+      function setCookies() {
+        // fetch email and firstname from login form inputs
+        let firstName = document.getElementById("firstname").value;
+        let email = document.getElementById("email").value;
+
+        // setting expiry to days
+        if(firstName && email){
+          const days = new Date();
+          days.setTime(days.getTime() + (10*24*60*60*1000));
+          const expiry_days = days.toTimeString();
+        }
+
+        // Create a cookie, valid across the entire site
+        document.cookie = `firstname=${firstName}; expires=${expiry_days};path="/"`;
+        document.cookie = `email=${email}; expires=${expiry_days}; path="/"`;
+      }
+      // function to show cookies
+      function showCookies() {
+
+        // Get the cookie and store in a variable
+        const cookies  = document.cookie;
+
+        // Split the cookie string at every semicolon
+        const cookieArray  = cookies.split(';');
+
+        let myCookieList = []
+
+        for(let cookie of cookieArray){
+            
+            // Split the elements at "=" and Trim any leading or trailing spaces from the name and value
+            let myCookies = cookie.trim().split('=');
+
+            // push elements split at = to myCookieList
+            myCookieList.push(myCookies)
+        }
+        if (cookies) {
+        //  used vanilla javascript to create a DOM element p 
+          let p = document.createElement("p");
+          p.innerText = `Email: ${myCookieList[1][1]}  - Firstname:${myCookieList[0][1]} `;
+          document.body.appendChild(p);
+        } else {
+          alert("There are no cookies");
+        }
+      }
+
+      //   function to get cookie using argument name
+      function getCookie(name){
+        // Get the cookie and store in a variable
+        const Cookies  = document.cookie;
+
+        // Split the cookie string at every semicolon
+        const cookieList  = Cookies.split(';');
+
+        // list to append mycookies
+        let mycookieList = [];
+
+        for(let cookie of cookieList){
+
+            // Split the elements at "=" and Trim any leading or trailing spaces from the name and value
+            let myCookie = cookie.trim().split('=');
+
+            //push elements split at = to myCookieList
+            mycookieList.push(myCookie);
+
+            if(mycookieList[0][1]==name){
+                return Cookies;
+            }else{
+                return "";
+            }
+        }
+      }
+    
+    </script>
+  </body>
+</html>
