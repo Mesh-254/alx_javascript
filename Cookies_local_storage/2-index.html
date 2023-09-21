@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>cookies-Basics</title>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
     <style>
       body {
         display: flex;
@@ -44,8 +45,8 @@
         }
 
         // Create a cookie, valid across the entire site
-        document.cookie = `firstname=${firstName}; expires=${expiry_days};path="/"`;
-        document.cookie = `email=${email}; expires=${expiry_days}; path="/"`;
+        document.cookie = `firstname=${firstName}; };path="/"`;
+        document.cookie = `email=${email}; path="/"`;
       }
       // function to show cookies
       function showCookies() {
@@ -84,21 +85,22 @@
         // Split the cookie string at every semicolon
         const cookieList  = Cookies.split(';');
 
-        // list to append mycookies
+        // array to append mycookies
         let mycookieList = [];
 
         for(let cookie of cookieList){
 
+    
             // Split the elements at "=" and Trim any leading or trailing spaces from the name and value
             let myCookie = cookie.trim().split('=');
 
             //push elements split at = to myCookieList
             mycookieList.push(myCookie);
 
-            if(mycookieList[0][1]==name){
-                return Cookies;
+            if(mycookieList[0][0]===name){
+                console.log(Cookies);
             }else{
-                return "";
+                alert("There are no cookies");
             }
         }
       }
