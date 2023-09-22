@@ -122,7 +122,9 @@ In a file 2-index.html:
 
 The login form should look like the image below
 ![Alt text](image-1.png)
-When a user is logged in the page should look like the image below
+
+<p>When a user is logged in the page should look like the image below</p>
+
 ![Alt text](image-2.png)
 
 ## 4. Use js-cookie
@@ -133,7 +135,8 @@ When a user is logged in the page should look like the image below
 - Delete the getCookie function and use js-cookie get function instead
 - Use js-cookie remove function within deleteCookiesAndShowForm function
 - Use js-cookie set function within setCookiesAndShowWelcomeMessage function (new function that sets cookies and calls showWelcomeMessageOrForm)
-  <b>Requirements:</b>
+
+<b>Requirements:</b>
   - Access your code with http://localhost:8080/4-index.html
   - Build the Welcome message with Javascript without using HTML
   - Use js-cookie for every cookie manipulation
@@ -197,7 +200,8 @@ Reusing the code from the previous task, replace the use of local storage by ses
 - Create an array availableItems that will contain all the available items. Add the strings Shampoo, Soap, Sponge, and Water to the array
 - If session storage is not enabled on your browser, display an alert that will contain the message Sorry, your browser does not support Web storage. Try again with a better one
 - If session storage is available it should allow the user to see the application and call the function createStore and displayCart
-  <b>Create a function getCartFromStorage:</b>
+
+<b>Create a function getCartFromStorage:</b>
 
 - It should parse a string into a JSON object, returning the content of the cart stored in Session storage
 - If there is no cart, it should return an empty object
