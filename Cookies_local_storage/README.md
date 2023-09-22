@@ -210,7 +210,7 @@ Reusing the code from the previous task, replace the use of local storage by ses
 - It stores the value of the cart object in a string for the key cart in the Session Storage
 - It calls displayCart
 
-<b>Create a function removeItemfromCart:<b>
+<b>Create a function removeItemfromCart:</b>
 
 -
 - It accepts item(string) as argument
