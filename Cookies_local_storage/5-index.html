@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>cookies-Basics</title>
+    <style>
+      body {
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        padding-left: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h2>Available Products</h2>
+    <script>
+      //  array of available items
+      const availableItems = ["Shampoo", "Soap", "Sponge", "Water"];
+
+      // code to check if browser supports localstorage else call createStore and displaycart functions
+      if (typeof localStorage !== undefined) {
+        createStore();
+        displayCart();
+      } else {
+        // Display an alert if local storage is not supported
+        alert("Sorry, your browser does not support Web storage. Try again with a better one");
+      }
+      // function to add items to cart
+      function addItemToCart(item) {
+        // Add the item to local storage
+        localStorage.setItem(item, true);
+        }
+
+      // Function to create a store
+      function createStore() {
+        // created element ul
+        const ul = document.createElement("ul");
+
+        // loop through available items and append li elements to the ul
+        availableItems.forEach((item) => {
+          // Create li elements
+          const li = document.createElement("li");
+          li.textContent = item;
+          li.setAttribute("id", "items");
+          li.addEventListener('click',()=>{
+            addItemToCart(item);
+          });
+          ul.appendChild(li);
+        });
+
+        document.body.appendChild(ul);
+      }
+
+      // Function to display the cart
+      function displayCart() {
+
+        // check if the local storage contains any item
+        if (localStorage.length !== 0) {
+          
+          const para = document.createElement("p");
+          para.innerText =
+            "You previously had " + localStorage.length + " items in your cart";
+          document.body.appendChild(para);
+        }
+      }
+    </script>
+  </body>
+</html>
