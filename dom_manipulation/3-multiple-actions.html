@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Creating and Removing Elements</title>
+  </head>
+  <body>
+    <div id="container"></div>
+    <script>
+      let container = document.querySelector("#container");
+      const para = document.createElement("p");
+      para.textContent = "New paragraph";
+      container.appendChild(para);
+
+      const button = document.createElement("button");
+      button.innerText = "Hide/Remove";
+
+      button.addEventListener("click", () => {
+        para.style.display = "none";
+      });
+      button.addEventListener("dblclick", () => {
+        para.style.display = "block";
+      });
+
+      document.body.appendChild(button);
+    </script>
+  </body>
+</html>
