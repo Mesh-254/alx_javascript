@@ -12,7 +12,7 @@ function generateInputFields(numFields) {
     }
 
 }
-generateInputFields(2)
+
 
 //  to validate the form before submission
 function validateForm() {
@@ -23,7 +23,7 @@ function validateForm() {
     checkValue = true;
 
     for (let i = 1; i < inputs.length; i++) {
-        if (inputs[i].value.trim() == "") {
+        if (inputs[i].value == "") {
             checkValue = false;
             break;
         }

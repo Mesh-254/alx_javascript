@@ -17,7 +17,7 @@ function validatePassword() {
         passwordError.innerHTML = "The password must contain at least one uppercase letter.";
         return false;
     }
-    if(!lowercaseRegex.text(password)){
+    if(!lowercaseRegex.test(password)){
         passwordError.innerHTML= "The password must contain at least one lowercase letter.";
         return false;
     }
@@ -35,7 +35,7 @@ function validatePassword() {
         return false;
     }
     
-    passwordError.innerHTML = '<i class="fa fa-check-circle-o" aria-hidden="false">'
+    passwordError.innerHTML = '<i class="fa fa-check-circle-o">';
     return true;
   
 }
